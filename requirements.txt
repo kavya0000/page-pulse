@@ -1,7 +1,6 @@
-fastapi==0.103.2
-uvicorn==0.22.0
-httpx==0.24.1
-validators==0.20.0
+fastapi>=0.115.0
+uvicorn>=0.30.0
+httpx>=0.27.0
 slowapi==0.1.10
 cachetools==5.5.2
 pytest==7.4.4
