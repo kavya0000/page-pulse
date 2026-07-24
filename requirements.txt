@@ -1,0 +1,9 @@
+fastapi==0.103.2
+uvicorn==0.22.0
+httpx==0.24.1
+validators==0.20.0
+slowapi==0.1.10
+cachetools==5.5.2
+pytest==7.4.4
+pytest-asyncio==0.21.2
+python-json-logger==3.0.1
