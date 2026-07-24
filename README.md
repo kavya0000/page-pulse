@@ -2,6 +2,17 @@
 
 A production-ready URL Audit API built with FastAPI.
 
+## Live Deployment 🚀
+
+Production API:
+https://page-pulse-oci2.onrender.com
+
+Swagger API Documentation:
+https://page-pulse-oci2.onrender.com/docs
+
+API Status:
+✅ Production Ready
+
 ## Features
 
 - URL Validation
@@ -56,11 +67,11 @@ http://127.0.0.1:8000/docs
   "cached": false,
   "url": "https://www.google.com",
   "status_code": 200,
-  "response_time_ms": 856.35,
+  "response_time_ms": 871.78,
   "title": "Google",
-  "content_length": 83086
+  "content_length": 80684
 }
-```
+
 
 ## Run Tests
 
@@ -91,6 +102,7 @@ page-pulse/
 │── .gitignore
 ```
 
+
 ## Tech Stack
 
 - Python
@@ -100,6 +112,7 @@ page-pulse/
 - SlowAPI
 - Pytest
 - GitHub Actions
+- Render Cloud Deployment
 
 ## Author
 
