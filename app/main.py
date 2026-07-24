@@ -1,27 +1,31 @@
+from fastapi import FastAPI, Request
 import uuid
 import logging
 
-from fastapi import FastAPI, Request
 from app.api import router
 
+app = FastAPI(
+    title="Page Pulse API",
+    version="1.0.0",
+    description="Production URL Audit Service"
+)
 
-logging.basicConfig(level=logging.INFO)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s"
+)
 
 logger = logging.getLogger("page-pulse")
 
 
-app = FastAPI(
-    title="Page Pulse API"
-)
-
-
 @app.middleware("http")
-async def add_request_id(request: Request, call_next):
+async def request_id_middleware(request: Request, call_next):
 
     request_id = str(uuid.uuid4())
 
     logger.info(
-        f"Request started | ID={request_id}"
+        f"request_started request_id={request_id} path={request.url.path}"
     )
 
     response = await call_next(request)
@@ -29,14 +33,10 @@ async def add_request_id(request: Request, call_next):
     response.headers["X-Request-ID"] = request_id
 
     logger.info(
-        f"Request completed | ID={request_id}"
+        f"request_completed request_id={request_id} status={response.status_code}"
     )
 
     return response
-
-
-
-app.include_router(router)
 
 
 @app.get("/")
@@ -47,3 +47,6 @@ def home():
         "status": "running",
         "credit": "Built for Digital Heroes Training Task - https://digitalheroesco.com"
     }
+
+
+app.include_router(router)
