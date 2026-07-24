@@ -24,6 +24,10 @@ API Status:
 - Swagger API Documentation
 - Automated Tests using Pytest
 - GitHub Actions CI
+- Request ID based structured logging
+- Async concurrency control for external requests
+- Configurable cache expiration using environment variables
+- Scalable architecture design documented in TASK_B_ARCHITECTURE.md
 
 ## Installation
 
