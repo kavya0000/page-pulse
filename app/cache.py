@@ -1,4 +1,6 @@
-from cachetools import TTLCache
+import os
+from dotenv import load_dotenv
 
-# Cache stores up to 100 URLs for 5 minutes
-cache = TTLCache(maxsize=100, ttl=300)
+load_dotenv()
+
+CACHE_TTL_SECONDS = int(os.getenv("CACHE_TTL_SECONDS", "300"))
